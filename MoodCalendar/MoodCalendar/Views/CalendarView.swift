@@ -21,7 +21,7 @@ struct CalendarView: View {
                     daysHeader
                     daysGrid
                     
-                    if let day = selectedDay,
+                    if let _ = selectedDay,
                        !selectedDayEntries.isEmpty {
                         dayEntriesList
                     }
