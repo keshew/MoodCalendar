@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = MoodCalendarViewModel()
+    @EnvironmentObject var viewModel: MoodCalendarViewModel
     
     var body: some View {
         TabView {
@@ -11,9 +11,13 @@ struct ContentView: View {
                 }
             
             CalendarView()
-            
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
+                }
+            
+            FocusView()
+                .tabItem {
+                    Label("Focus", systemImage: "timer")
                 }
             
             StatisticsView()
@@ -21,7 +25,6 @@ struct ContentView: View {
                     Label("Statistics", systemImage: "chart.bar")
                 }
         }
-        .environmentObject(viewModel)
         .tint(.customText)
         .background(Color.customBackground)
     }
@@ -29,4 +32,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(MoodCalendarViewModel())
 }

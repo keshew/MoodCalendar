@@ -6,23 +6,10 @@ struct MoodCalendarApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabView {
-                TodayView()
-                    .tabItem {
-                        Label("Today", systemImage: "sun.max")
-                    }
-                
-                CalendarView()
-                    .tabItem {
-                        Label("Calendar", systemImage: "calendar")
-                    }
-                
-                StatisticsView()
-                    .tabItem {
-                        Label("Statistics", systemImage: "chart.bar")
-                    }
-            }
-            .environmentObject(viewModel)
+            ContentView()
+                .environmentObject(viewModel)
+                .tint(.customText)
+                .background(Color.customBackground)
         }
     }
 } 
