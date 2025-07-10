@@ -7,7 +7,7 @@ struct FocusView: View {
     @State private var animationScale: CGFloat = 1.0
     
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 80) {
             Text(timeString)
                 .font(.system(size: 64, weight: .bold))
                 .monospacedDigit()

@@ -81,7 +81,7 @@ struct MoodButton: View {
                     .foregroundColor(.customText)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(mood.color)
+            .background(Color(red: 69/255, green: 149/255, blue: 191/255))
             .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius: 15)
