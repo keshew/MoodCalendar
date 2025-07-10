@@ -7,39 +7,35 @@ struct StatisticsView: View {
     private let calendar = Calendar.current
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.customBackground
-                    .ignoresSafeArea()
+        ZStack {
+            Color.customBackground
+                .ignoresSafeArea()
+            
+            VStack {
+                Text("Statistics")
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .padding(.top)
                 
-                VStack {
-                    monthSelector
-                    
-                    if let statistics = calculateStatistics() {
-                        List {
-                            moodDistributionSection(statistics: statistics)
-                            mostFrequentMoodSection(statistics: statistics)
-                            streakSection(statistics: statistics)
-                            
-                            
-                        }
-                        .scrollContentBackground(.hidden)
-                        .listStyle(InsetGroupedListStyle())
-                    } else {
-                        Text("No mood entries for this month")
-                            .font(.system(.subheadline, design: .rounded))
-                            .foregroundColor(.customText)
-                            .padding()
-                        
-                        
-                        Spacer()
+                monthSelector
+                
+                if let statistics = calculateStatistics() {
+                    List {
+                        moodDistributionSection(statistics: statistics)
+                        mostFrequentMoodSection(statistics: statistics)
+                        streakSection(statistics: statistics)
                     }
+                    .scrollContentBackground(.hidden)
+                    .listStyle(InsetGroupedListStyle())
+                } else {
+                    Text("No mood entries for this month")
+                        .font(.system(.subheadline, design: .rounded))
+                        .foregroundColor(.customText)
+                        .padding()
+                    
+                    Spacer()
                 }
             }
-            .navigationTitle("Statistics")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(Color.customBackground, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
         }
     }
     

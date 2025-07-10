@@ -25,7 +25,7 @@ struct ContentView: View {
                     Label("Statistics", systemImage: "chart.bar")
                 }
         }
-        .tint(.customText)
+        .tint(.black)
         .background(Color.customBackground)
     }
 }

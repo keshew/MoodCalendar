@@ -11,28 +11,27 @@ struct CalendarView: View {
     private let daysInWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.customBackground
-                    .ignoresSafeArea()
+        ZStack {
+            Color.customBackground
+                .ignoresSafeArea()
+            
+            VStack(spacing: 0) {
+                Text("Mood Calendar")
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .padding(.top)
                 
-                VStack(spacing: 0) {
-                    monthSelector
-                    daysHeader
-                    daysGrid
-                    
-                    if let _ = selectedDay,
-                       !selectedDayEntries.isEmpty {
-                        dayEntriesList
-                    }
-                    
-                    Spacer()
+                monthSelector
+                daysHeader
+                daysGrid
+                
+                if let _ = selectedDay,
+                   !selectedDayEntries.isEmpty {
+                    dayEntriesList
                 }
+                
+                Spacer()
             }
-            .navigationTitle("Mood Calendar")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(Color.customBackground, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
         }
     }
     
